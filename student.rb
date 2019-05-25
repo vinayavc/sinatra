@@ -1,5 +1,6 @@
 require 'dm-core'
 require 'dm-migrations'
+require 'sinatra/activerecord'
 
 class Student
   include DataMapper::Resource
@@ -8,6 +9,9 @@ class Student
   property :dob, String
   property :address, String  
 end
+DataMapper.finalize
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/test.db")
+Student.auto_migrate!
 
 configure do
   enable :sessions
@@ -15,7 +19,7 @@ configure do
   set :password, 'sinatra'
 end
 
-DataMapper.finalize
+
 
 get '/students' do
   redirect("/login") unless session[:admin]
@@ -25,8 +29,14 @@ end
 
 get '/students/new' do
   redirect("/login") unless session[:admin]
-  @students = Student.new
-  erb :new_student
+  stud = Student.new
+  stud.name = "terry"
+  stud.dob = "14/22/1994"
+  stud.address = "Santa Bruno"
+  stud.save
+#   @students = Student.new
+#   erb :new_student
+    redirect("/students")
 end
 
 get '/students/:id' do
