@@ -1,10 +1,35 @@
-# frozen_string_literal: true
+source 'https://rubygems.org'
 
-source "https://rubygems.org"
+gem "sinatra"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+gem "sinatra-contrib"
 
-# gem "rails"
+gem "sinatra-erb"
 
-gem 'sinatra'
-gem 'sendgrid-ruby'
+gem "sass"
+
+gem "mail"
+
+gem "dm-timestamps"
+
+gem "dm-validations"
+
+gem "dm-core"
+
+gem "dm-migrations"
+
+gem "thin"
+
+
+group :production do
+	gem "pg"
+end
+
+gem "dm-postgres-adapter"
+
+group :development, :test do
+	gem "sqlite3"
+	gem "dm-sqlite-adapter"
+end
+
+

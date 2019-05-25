@@ -11,13 +11,13 @@ html {
     background-color: $htmlbgcolor;
 }
 body {
-    width:700px;
-    height:900px;
+    width: 700px;
+    height: 900px;
     background-color: $bodybgcolor;
     margin:2em auto 2em;
     padding:25px;
     position:relative;
-    font-family: $main-font;	
+    font-family: $main-font;
 }
 
 
@@ -26,11 +26,22 @@ h1 {
   font: 32px/1 $main-font;
 }
 
+h2 {
+  color: $black;
+  font: 32px/1 $main-font;
+}
+
+h3 {
+  color: $black;
+  font: 16px/1 $main-font;
+}
+
 header h1 {
   font-size: 40px;
-  line-height: 80px;
-  background: transparent url(/images/logo.png) 0 0 no-repeat;
-  padding-left: 105px;
+  line-height: 100px;
+  background: transparent url(/images/students.jpg) 0 0 no-repeat;
+  background-size: 400px 300px;
+  padding-left: 500px;
 }
 
 @mixin tabs ($background: blue, $color: yellow) {
@@ -48,7 +59,7 @@ header h1 {
     text-decoration: none;
     display: block;
     padding: 8px;
-    background: $background;
+    background: $background;  
     color: $color;
     &:hover {
       background: darken($background, 20%);
@@ -57,6 +68,16 @@ header h1 {
 }
 
 nav {
+  @include tabs ($background: $black, $color: $white);
+  font-weight: bold;
+}
+
+nav1 {
+  @include tabs ($background: $black, $color: $white);
+  font-weight: bold;
+}
+
+nav2 {
   @include tabs ($background: $black, $color: $white);
   font-weight: bold;
 }
