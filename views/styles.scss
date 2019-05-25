@@ -39,7 +39,6 @@ h3 {
 header h1 {
   font-size: 40px;
   line-height: 100px;
-  background: transparent url(/images/students.jpg) 0 0 no-repeat;
   background-size: 400px 300px;
   padding-left: 500px;
 }
@@ -67,20 +66,6 @@ header h1 {
   }
 }
 
-nav {
-  @include tabs ($background: $black, $color: $white);
-  font-weight: bold;
-}
-
-nav1 {
-  @include tabs ($background: $black, $color: $white);
-  font-weight: bold;
-}
-
-nav2 {
-  @include tabs ($background: $black, $color: $white);
-  font-weight: bold;
-}
 
 p {
   font: 13px/1.4 $main-font;

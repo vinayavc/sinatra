@@ -2,8 +2,6 @@ require 'sinatra'
 require 'sass'
 require './student'
 require './comment'
-#require './song'
-# require 'sinatra/reloader' if development?
 
 #enable :sessions
 configure :production do
@@ -21,11 +19,6 @@ get('/styles.css'){ scss :styles }
 get '/' do
 	redirect("/login") unless session[:admin]
     erb :login
-  	# if session[:admin] == true
-	# 	erb :home, :layout => :layout2
-	# else
-	# 	erb :home
-	# end
 end
 
 get '/home' do
@@ -44,23 +37,7 @@ get '/contact' do
 	erb :contact
 end
 
-# get '/students' do
-# 	erb :students
-# end
-
-# get '/comment' do
-# 	if session[:admin] == true
-# 		erb :comment, :layout => :layout2
-# 	else
-# 		erb :comment
-# 	end
-# end
-
 get '/video' do
 	redirect("/login") unless session[:admin]
 	erb :video
 end
-
-# not_found do
-#   	erb :not_found
-# end
